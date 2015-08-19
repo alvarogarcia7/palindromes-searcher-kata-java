@@ -26,6 +26,11 @@ public class PalindromeSearcherShould {
 		assertThat(search("aa"), is(2 + 1));
 	}
 
+	@Test
+	public void find_palindromes_of_length_even () {
+		assertThat(search("an na"), is(4+2));
+	}
+
 	private int search (final String candidate) {
 
 		return new PalindromeSearcher(candidate).search();
