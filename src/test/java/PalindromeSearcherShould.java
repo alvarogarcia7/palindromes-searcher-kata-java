@@ -19,6 +19,11 @@ public class PalindromeSearcherShould {
 		assertThat(search("ab a"), is(3 + 1));
 	}
 
+	@Test
+	public void find_palindromes_of_length_2 () {
+		assertThat(search("aa"), is(2 + 1));
+	}
+
 	private int search (final String candidate) {
 		return  palindromes(candidate);
 	}
