@@ -2,7 +2,7 @@ package com.example.kata.palindromesearcher;
 
 public class PalindromeSearcher {
 	private final String candidate;
-	private final boolean DEBUG = false;
+	private final boolean DEBUG = true;
 
 	public PalindromeSearcher (final String candidate) {
 		this.candidate = removeAllSpaces(candidate);
@@ -30,21 +30,19 @@ public class PalindromeSearcher {
 	}
 
 	private int matchesEvenPalindromes (final int pivot) {
-		int palindromes = 0;
-		for (int i = 0; i <= pivot; i++) {
-			final int start = pivot - i;
-			final int end = pivot + i;
-			if (areTheSameCharacter(start, end)) {
-				palindromes++;
-			}
-		}
-		return palindromes;
+		final int shift = 0;
+		return matchesPalindromes(pivot, shift);
 	}
 
 	private int matchesPairPalindromes (final int pivot) {
+		int shift = - 1;
+		return matchesPalindromes(pivot, shift);
+	}
+
+	private int matchesPalindromes (final int pivot, final int shift) {
 		int palindromes = 0;
 		for (int i = 0; i <= pivot; i++) {
-			final int start = pivot - i - 1;
+			final int start = pivot - i + shift;
 			final int end = pivot + i;
 			if (areTheSameCharacter(start, end)) {
 				palindromes++;
