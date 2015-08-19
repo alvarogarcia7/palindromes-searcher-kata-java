@@ -43,22 +43,34 @@ public class PalindromeSearcherShould {
 		public int search () {
 			int palindromes = 0;
 			for (int pivot = 0; pivot < candidate.length(); pivot++) {
-				for (int i = 0; i <= pivot; i++) {
-					final int start = pivot - i;
-					final int end = pivot + i;
-					if (withinBounds(candidate, start, end) && get(start) == get(end)) {
-						palindromes++;
-						System.out.println("found [" + start + "," + end + "] = " + get(candidate, start, end));
-					}
-				}
-				{
-					final int start = pivot - 1;
-					final int end = pivot;
-					if (withinBounds(candidate, start, end) && get(start) == get(end)) {
-						palindromes++;
-						System.out.println("found [" + start + "," + end + "] = " + get(candidate, start, end));
-					}
-				}
+				palindromes += matchingAnyLeftAndRight(pivot);
+				palindromes += checkIfMatchesLastOnly(pivot);
+			}
+			return palindromes;
+		}
+
+		private int matchingAnyLeftAndRight (final int pivot) {
+			int palindromes = 0;
+			for (int i = 0; i <= pivot; i++) {
+				final int start = pivot - i;
+				final int end = pivot + i;
+				palindromes = check(palindromes, start, end);
+			}
+			return palindromes;
+		}
+
+		private int checkIfMatchesLastOnly (final int pivot) {
+			int palindromes = 0;
+			final int start = pivot - 1;
+			final int end = pivot;
+			palindromes = check(palindromes, start, end);
+			return palindromes;
+		}
+
+		private int check (int palindromes, final int start, final int end) {
+			if (withinBounds(candidate, start, end) && get(start) == get(end)) {
+				palindromes++;
+				System.out.println("found [" + start + "," + end + "] = " + get(candidate, start, end));
 			}
 			return palindromes;
 		}
