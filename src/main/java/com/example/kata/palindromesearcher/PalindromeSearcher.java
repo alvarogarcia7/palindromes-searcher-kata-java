@@ -12,7 +12,7 @@ public class PalindromeSearcher {
 	 *
 	 * Every non-space character is considered a palindrome of length 1. Further palindromes can be present as well.
 	 *
-	 * This method has cost O(n^2) being n the string length 
+	 * This method has cost O(n^2) being n the string length
 	 * @return
 	 */
 	public int search () {
@@ -60,7 +60,7 @@ public class PalindromeSearcher {
 		return string.substring(start, end + 1);
 	}
 
-	private char get (final int j) {
-		return candidate.charAt(j);
+	private char get (final int i) {
+		return candidate.charAt(i);
 	}
 }
