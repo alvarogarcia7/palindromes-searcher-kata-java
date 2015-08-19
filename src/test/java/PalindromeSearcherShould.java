@@ -58,18 +58,18 @@ public class PalindromeSearcherShould {
 			for (int i = 0; i <= pivot; i++) {
 				final int start = pivot - i;
 				final int end = pivot + i;
-				palindromes = check(palindromes, start, end);
+				palindromes = check(start, end);
 			}
 			return palindromes;
 		}
 
 		private int checkIfMatchesLastOnly (final int pivot) {
-			int palindromes = 0;
-			palindromes = check(palindromes, pivot - 1, pivot);
+			int palindromes = check(pivot - 1, pivot);
 			return palindromes;
 		}
 
-		private int check (int palindromes, final int start, final int end) {
+		private int check (final int start, final int end) {
+			int palindromes = 0;
 			if (withinBounds(candidate, start, end) && get(start) == get(end)) {
 				palindromes++;
 			}
