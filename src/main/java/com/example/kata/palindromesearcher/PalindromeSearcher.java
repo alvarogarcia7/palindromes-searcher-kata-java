@@ -48,7 +48,6 @@ public class PalindromeSearcher {
 	}
 
 	private boolean areTheSameCharacter (final int start, final int end) {
-		int palindromes = 0;
 		return withinBounds(candidate, start, end) && get(start) == get(end);
 	}
 
