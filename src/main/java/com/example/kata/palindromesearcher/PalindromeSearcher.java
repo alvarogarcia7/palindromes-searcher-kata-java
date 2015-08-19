@@ -2,6 +2,7 @@ package com.example.kata.palindromesearcher;
 
 public class PalindromeSearcher {
 	private final String candidate;
+	private final boolean DEBUG = false;
 
 	public PalindromeSearcher (final String candidate) {
 		this.candidate = removeAllSpaces(candidate);
@@ -53,7 +54,23 @@ public class PalindromeSearcher {
 	}
 
 	private boolean areTheSameCharacter (final int start, final int end) {
+		if (DEBUG) {
+			return areTheSameCharacterNoDebug(start, end);
+		} else {
+			return areTheSameCharacterWithDebug(start, end);
+		}
+	}
+
+	private boolean areTheSameCharacterNoDebug (final int start, final int end) {
 		return withinBounds(start, end) && get(start) == get(end);
+	}
+
+	private boolean areTheSameCharacterWithDebug (final int start, final int end) {
+		final boolean sameCharacter = areTheSameCharacterNoDebug(start, end);
+		if (sameCharacter) {
+			System.out.println("Found [" + start + "," + end + "] = " + candidate.substring(start, end + 1));
+		}
+		return sameCharacter;
 	}
 
 	private boolean withinBounds (final int start, final int end) {
