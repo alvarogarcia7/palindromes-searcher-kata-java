@@ -48,11 +48,11 @@ public class PalindromeSearcher {
 	}
 
 	private boolean areTheSameCharacter (final int start, final int end) {
-		return withinBounds(candidate, start, end) && get(start) == get(end);
+		return withinBounds(start, end) && get(start) == get(end);
 	}
 
-	private boolean withinBounds (final String string, final int start, final int end) {
-		return start >= 0 && end < string.length();
+	private boolean withinBounds (final int start, final int end) {
+		return start >= 0 && end < candidate.length();
 	}
 
 	private char get (final int i) {
