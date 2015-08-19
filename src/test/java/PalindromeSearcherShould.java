@@ -1,7 +1,5 @@
 import org.junit.Test;
 
-import java.util.Stack;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -33,20 +31,47 @@ public class PalindromeSearcherShould {
 		}
 
 		public int search () {
-			char last;
+			char pivot;
 			char current;
 			int palindromes = 0;
-			Stack<Character> stack = new Stack<>();
-			for (int i=1; i < candidate.length(); i++) {
-				last = candidate.charAt(i - 1);
-				current = candidate.charAt(i);
-				if (last == current || (!stack.isEmpty() && stack.peek() == current)){
-					palindromes++;
-					stack.pop();
+			int i=-1, j;
+			while(true) {
+				i++;
+				if(i >= candidate.length()){
+					break;
 				}
-				stack.push(last);
+				j=i;
+				pivot = get(j);
+				current = get(i);
+				while (pivot == current) {
+					if(i-j > 0) {
+						System.out.println("found [" + j + "," + i + "] = " + get(candidate, j, i));
+						palindromes++;
+					}
+					j--;
+					if (j >= 0) {
+						pivot = get(j);
+					}
+					i++;
+					if(i >= candidate.length()){
+						break;
+					}
+					current = get(i);
+
+				}
+
 			}
 			return palindromes;
+		}
+
+		private String get (String string, final int start, final int end) {
+			return string.substring(start, end + 1);
+		}
+
+		private char get (final int j) {
+			final char pivot;
+			pivot = candidate.charAt(j);
+			return pivot;
 		}
 	}
 }
