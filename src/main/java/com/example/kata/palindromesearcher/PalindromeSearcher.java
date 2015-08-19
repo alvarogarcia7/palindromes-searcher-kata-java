@@ -7,6 +7,14 @@ public class PalindromeSearcher {
 		this.candidate = removeAllSpaces(candidate);
 	}
 
+	/**
+	 * Searches for palindromes in the string.
+	 *
+	 * Every non-space character is considered a palindrome of length 1. Further palindromes can be present as well.
+	 *
+	 * This method has cost O(n^2) being n the string length 
+	 * @return
+	 */
 	public int search () {
 		int palindromes = 0;
 		for (int pivot = 0; pivot < candidate.length(); pivot++) {
