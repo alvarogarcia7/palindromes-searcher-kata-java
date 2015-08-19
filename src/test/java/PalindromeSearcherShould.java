@@ -43,7 +43,7 @@ public class PalindromeSearcherShould {
 		public int search () {
 			int palindromes = 0;
 			for (int pivot = 0; pivot < candidate.length(); pivot++) {
-				palindromes += checkIfMatchesLastOnly(pivot);
+				palindromes += matchesLastOnly(pivot);
 				palindromes += matchingAnyLeftAndRight(pivot);
 			}
 			return palindromes;
@@ -65,7 +65,7 @@ public class PalindromeSearcherShould {
 			return palindromes;
 		}
 
-		private int checkIfMatchesLastOnly (final int pivot) {
+		private int matchesLastOnly (final int pivot) {
 			if (areTheSameCharacter(pivot - 1, pivot)) {
 				return 1;
 			}
