@@ -16,7 +16,7 @@ public class PalindromeSearcherShould {
 
 	@Test
 	public void find_palindromes_in_more_than_one_word () {
-		assertThat(search("ab a"), is(2 + 1));
+		assertThat(search("ab a"), is(3 + 1));
 	}
 
 	private int search (final String candidate) {
@@ -32,7 +32,7 @@ public class PalindromeSearcherShould {
 		private final String candidate;
 
 		public PalindromeSearcher (final String candidate) {
-			this.candidate = candidate;
+			this.candidate = candidate.replaceAll(" ", "");
 		}
 
 		public int search () {
@@ -43,6 +43,15 @@ public class PalindromeSearcherShould {
 					final int end = pivot + i;
 					if (withinBounds(candidate, start, end) && get(start) == get(end)) {
 						palindromes++;
+						System.out.println("found [" + start + "," + end + "] = " + get(candidate, start, end));
+					}
+				}
+				{
+					final int start = pivot - 1;
+					final int end = pivot;
+					if (withinBounds(candidate, start, end) && get(start) == get(end)) {
+						palindromes++;
+						System.out.println("found [" + start + "," + end + "] = " + get(candidate, start, end));
 					}
 				}
 			}
