@@ -65,9 +65,7 @@ public class PalindromeSearcherShould {
 
 		private int checkIfMatchesLastOnly (final int pivot) {
 			int palindromes = 0;
-			final int start = pivot - 1;
-			final int end = pivot;
-			palindromes = check(palindromes, start, end);
+			palindromes = check(palindromes, pivot - 1, pivot);
 			return palindromes;
 		}
 
