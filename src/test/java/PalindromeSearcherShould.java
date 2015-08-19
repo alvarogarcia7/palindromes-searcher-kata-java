@@ -15,7 +15,7 @@ public class PalindromeSearcherShould {
 	}
 
 	private int search (final String candidate) {
-		return candidate.length() + palindromes(candidate);
+		return  palindromes(candidate);
 	}
 
 	private int palindromes (final String candidate) {
@@ -31,39 +31,22 @@ public class PalindromeSearcherShould {
 		}
 
 		public int search () {
-			char pivot;
-			char current;
 			int palindromes = 0;
-			int i=-1, j;
-			while(true) {
-				i++;
-				if(i >= candidate.length()){
-					break;
-				}
-				j=i;
-				pivot = get(j);
-				current = get(i);
-				while (pivot == current) {
-					if(i-j > 0) {
-						System.out.println("found [" + j + "," + i + "] = " + get(candidate, j, i));
+			for (int pivot = 0; pivot < candidate.length(); pivot++) {
+				for (int i = 0; i <= pivot; i++) {
+					final int start = pivot - i;
+					final int end = pivot + i;
+					if (withinBounds(candidate, start, end) && get(start) == get(end)) {
 						palindromes++;
+						get(candidate, start, end);
 					}
-					j--;
-					if (j >= 0) {
-						pivot = get(j);
-					} else {
-						break;
-					}
-					i++;
-					if(i >= candidate.length()){
-						break;
-					}
-					current = get(i);
-
 				}
-
 			}
 			return palindromes;
+		}
+
+		private boolean withinBounds (final String candidate, final int start, final int end) {
+			return start >= 0 && end < candidate.length();
 		}
 
 		private String get (String string, final int start, final int end) {
