@@ -10,7 +10,7 @@ Example:
 
   * ``sugus`` = 7. ``s``, ``u``, ``g``, ``u``, ``s``, ``ugu``, ``sugus``
   * ``candy`` = 5. All the letters
-  * ``an a`` = All the letters (3) + ``an a``
+  * ``an a`` = All the letters (3) + ``ana`` (the space is not taken into account)
 
 Notes: you cannot change the order of the letters to be able to generate more palindromes. If your solution involves sorting it (for whatever reason), go ahead.
 
