@@ -12,6 +12,8 @@ Example:
   * ``candy`` = 5. All the letters
   * ``an a`` = All the letters (3) + ``an a``
 
+Notes: you cannot change the order of the letters to be able to generate more palindromes. If your solution involves sorting it (for whatever reason), go ahead.
+
 ## Start the problem
 
 To start this exercise, clone the repo and checkout the tag [``start-here``](https://github.com/alvarogarcia7/palindromes-searcher-kata-java/tree/start-here)
