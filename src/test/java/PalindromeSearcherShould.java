@@ -74,7 +74,6 @@ public class PalindromeSearcherShould {
 		private int check (int palindromes, final int start, final int end) {
 			if (withinBounds(candidate, start, end) && get(start) == get(end)) {
 				palindromes++;
-				System.out.println("found [" + start + "," + end + "] = " + get(candidate, start, end));
 			}
 			return palindromes;
 		}
