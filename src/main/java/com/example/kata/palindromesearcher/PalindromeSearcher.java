@@ -18,8 +18,8 @@ public class PalindromeSearcher {
 	public int search () {
 		int palindromes = 0;
 		for (int pivot = 0; pivot < candidate.length(); pivot++) {
-			palindromes += matchesLastOnly(pivot);
-			palindromes += matchingAnyLeftAndRight(pivot);
+			palindromes += matchesPairPalindromes(pivot);
+			palindromes += matchesEvenPalindromes(pivot);
 		}
 		return palindromes;
 	}
@@ -28,7 +28,7 @@ public class PalindromeSearcher {
 		return candidate.replaceAll(" ", "");
 	}
 
-	private int matchingAnyLeftAndRight (final int pivot) {
+	private int matchesEvenPalindromes (final int pivot) {
 		int palindromes = 0;
 		for (int i = 0; i <= pivot; i++) {
 			final int start = pivot - i;
@@ -40,11 +40,16 @@ public class PalindromeSearcher {
 		return palindromes;
 	}
 
-	private int matchesLastOnly (final int pivot) {
-		if (areTheSameCharacter(pivot - 1, pivot)) {
-			return 1;
+	private int matchesPairPalindromes (final int pivot) {
+		int palindromes = 0;
+		for (int i = 0; i <= pivot; i++) {
+			final int start = pivot - i - 1;
+			final int end = pivot + i;
+			if (areTheSameCharacter(start, end)) {
+				palindromes++;
+			}
 		}
-		return 0;
+		return palindromes;
 	}
 
 	private boolean areTheSameCharacter (final int start, final int end) {
