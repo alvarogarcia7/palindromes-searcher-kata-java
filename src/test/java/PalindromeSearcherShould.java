@@ -58,22 +58,23 @@ public class PalindromeSearcherShould {
 			for (int i = 0; i <= pivot; i++) {
 				final int start = pivot - i;
 				final int end = pivot + i;
-				palindromes = check(start, end);
+				if (areTheSameCharacter(start, end)) {
+					palindromes++;
+				}
 			}
 			return palindromes;
 		}
 
 		private int checkIfMatchesLastOnly (final int pivot) {
-			int palindromes = check(pivot - 1, pivot);
-			return palindromes;
+			if (areTheSameCharacter(pivot - 1, pivot)) {
+				return 1;
+			}
+			return 0;
 		}
 
-		private int check (final int start, final int end) {
+		private boolean areTheSameCharacter (final int start, final int end) {
 			int palindromes = 0;
-			if (withinBounds(candidate, start, end) && get(start) == get(end)) {
-				palindromes++;
-			}
-			return palindromes;
+			return withinBounds(candidate, start, end) && get(start) == get(end);
 		}
 
 		private boolean withinBounds (final String candidate, final int start, final int end) {
