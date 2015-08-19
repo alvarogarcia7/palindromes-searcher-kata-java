@@ -43,8 +43,8 @@ public class PalindromeSearcherShould {
 		public int search () {
 			int palindromes = 0;
 			for (int pivot = 0; pivot < candidate.length(); pivot++) {
-				palindromes += matchingAnyLeftAndRight(pivot);
 				palindromes += checkIfMatchesLastOnly(pivot);
+				palindromes += matchingAnyLeftAndRight(pivot);
 			}
 			return palindromes;
 		}
