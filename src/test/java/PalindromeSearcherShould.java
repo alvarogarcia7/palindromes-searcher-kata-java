@@ -14,6 +14,11 @@ public class PalindromeSearcherShould {
 		assertThat(search("sugus"), is(5 + 2));
 	}
 
+	@Test
+	public void find_palindromes_in_more_than_one_word () {
+		assertThat(search("ab a"), is(2 + 1));
+	}
+
 	private int search (final String candidate) {
 		return  palindromes(candidate);
 	}
@@ -38,7 +43,6 @@ public class PalindromeSearcherShould {
 					final int end = pivot + i;
 					if (withinBounds(candidate, start, end) && get(start) == get(end)) {
 						palindromes++;
-						get(candidate, start, end);
 					}
 				}
 			}
