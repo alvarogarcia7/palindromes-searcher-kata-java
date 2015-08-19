@@ -10,7 +10,7 @@ Example:
 
   * ``sugus`` = 7. ``s``, ``u``, ``g``, ``u``, ``s``, ``ugu``, ``sugus``
   * ``candy`` = 5. All the letters
-  * ``an na`` = All the letters (4) + ``an na``
+  * ``an a`` = All the letters (3) + ``an a``
 
 ## Start the problem
 
