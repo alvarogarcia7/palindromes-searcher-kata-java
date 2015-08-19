@@ -7,8 +7,13 @@ import static org.hamcrest.Matchers.is;
 
 public class PalindromeSearcherShould {
 	@Test
-	public void find_simple_one () {
+	public void find_whole_word_length_3 () {
 		assertThat(search("ugu"), is(3 + 1));
+	}
+
+	@Test
+	public void find_whole_word_with_length_greater_than_3 () {
+		assertThat(search("sugus"), is(5 + 2));
 	}
 
 	private int search (final String candidate) {
