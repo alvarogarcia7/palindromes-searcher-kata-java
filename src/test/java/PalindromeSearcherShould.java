@@ -88,9 +88,7 @@ public class PalindromeSearcherShould {
 		}
 
 		private char get (final int j) {
-			final char pivot;
-			pivot = candidate.charAt(j);
-			return pivot;
+			return candidate.charAt(j);
 		}
 	}
 }
