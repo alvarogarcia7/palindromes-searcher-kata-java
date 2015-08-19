@@ -27,10 +27,6 @@ public class PalindromeSearcherShould {
 	}
 
 	private int search (final String candidate) {
-		return  palindromes(candidate);
-	}
-
-	private int palindromes (final String candidate) {
 
 		return new PalindromeSearcher(candidate).search();
 	}
