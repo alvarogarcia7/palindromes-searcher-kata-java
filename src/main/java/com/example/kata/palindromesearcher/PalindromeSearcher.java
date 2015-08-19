@@ -56,10 +56,6 @@ public class PalindromeSearcher {
 		return start >= 0 && end < candidate.length();
 	}
 
-	private String get (String string, final int start, final int end) {
-		return string.substring(start, end + 1);
-	}
-
 	private char get (final int i) {
 		return candidate.charAt(i);
 	}
