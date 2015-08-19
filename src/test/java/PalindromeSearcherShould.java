@@ -37,7 +37,7 @@ public class PalindromeSearcherShould {
 		private final String candidate;
 
 		public PalindromeSearcher (final String candidate) {
-			this.candidate = candidate.replaceAll(" ", "");
+			this.candidate = removeAllSpaces(candidate);
 		}
 
 		public int search () {
@@ -47,6 +47,10 @@ public class PalindromeSearcherShould {
 				palindromes += matchingAnyLeftAndRight(pivot);
 			}
 			return palindromes;
+		}
+
+		private String removeAllSpaces (final String candidate) {
+			return candidate.replaceAll(" ", "");
 		}
 
 		private int matchingAnyLeftAndRight (final int pivot) {
