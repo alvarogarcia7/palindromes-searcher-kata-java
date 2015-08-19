@@ -51,8 +51,8 @@ public class PalindromeSearcher {
 		return withinBounds(candidate, start, end) && get(start) == get(end);
 	}
 
-	private boolean withinBounds (final String candidate, final int start, final int end) {
-		return start >= 0 && end < candidate.length();
+	private boolean withinBounds (final String string, final int start, final int end) {
+		return start >= 0 && end < string.length();
 	}
 
 	private char get (final int i) {
