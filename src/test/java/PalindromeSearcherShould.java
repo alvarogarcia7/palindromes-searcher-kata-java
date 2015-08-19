@@ -51,6 +51,8 @@ public class PalindromeSearcherShould {
 					j--;
 					if (j >= 0) {
 						pivot = get(j);
+					} else {
+						break;
 					}
 					i++;
 					if(i >= candidate.length()){
